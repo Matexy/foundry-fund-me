@@ -14,16 +14,15 @@ To run this project, you will need to have the following installed on your machi
 
 1. Clone the repository to your local machine:
 ```bash
-git clone [https://github.com/Matexy/your-repo-name.git](https://github.com/Matexy/your-repo-name.git)
-cd your-repo-name
-
+git clone [https://github.com/Matexy/foundry-fund-me.git](https://github.com/Matexy/foundry-fund-me.git)
+cd foundry-fund-me
+```
 Build the project to install dependencies and compile the contracts:
-
-```bash
+```
 forge build
-
+```
 Testing
 To run the full Foundry test suite:
-
-```bash
+```
 forge test
+```
