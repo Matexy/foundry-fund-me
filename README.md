@@ -1,66 +1,29 @@
-## Foundry
+# Decentralized Crowdfunding Project
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This is a decentralized crowdfunding smart contract built with Foundry. Users can fund the contract with ETH, and the owner can securely withdraw the funds.
 
-Foundry consists of:
+## Getting Started
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+### Requirements
+To run this project, you will need to have the following installed on your machine:
+* [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [foundry](https://getfoundry.sh/) (Includes `forge`, `cast`, `anvil`, and `chisel`)
+* [make](https://www.gnu.org/software/make/) (For running terminal shortcuts)
 
-## Documentation
+### Quickstart
 
-https://book.getfoundry.sh/
+1. Clone the repository to your local machine:
+```bash
+git clone [https://github.com/Matexy/your-repo-name.git](https://github.com/Matexy/your-repo-name.git)
+cd your-repo-name
 
-## Usage
+Build the project to install dependencies and compile the contracts:
 
-### Build
+```bash
+forge build
 
-```shell
-$ forge build
-```
+Testing
+To run the full Foundry test suite:
 
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+```bash
+forge test
