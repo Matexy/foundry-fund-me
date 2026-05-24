@@ -73,35 +73,22 @@ contract FundMeTest is Test {
         uint256 startingFundMeBalance = address(fundMe).balance; // this shows that address
 
         // Act
-        // uint256 gasStart = gasleft(); // gasleft is a function in solidity that helps us know how much gas our transaction costs
-        // vm.txGasPrice(GAS_PRICE);
-
         vm.prank(fundMe.getOwner()); // this creates a fake address to make us the owner
         fundMe.withdraw(); // now we execute the withdraw function as owner
-
-        // uint256 gasEnd = gasleft();
-        // uint256 gasUsed = (gasStart - gasEnd) * tx.gasprice;
-        // console.log(gasUsed);
 
         // Assert
         uint256 endingOwnerBalance = fundMe.getOwner().balance;
         uint256 endingFundingBalance = address(fundMe).balance;
         assertEq(endingFundingBalance, 0);
-        assertEq(
-            startingFundMeBalance + startingOwnerBalance,
-            endingOwnerBalance
-        );
+        assertEq(startingFundMeBalance + startingOwnerBalance, endingOwnerBalance);
     }
 
-    // This function helps make sure that on
     function testWithdrawFromMultipleFunders() public funded {
+        // Arrange
         uint160 numberOfFunders = 12;
         uint160 startingFunderIndex = 3;
 
         for (uint160 i = startingFunderIndex; i < numberOfFunders; i++) {
-            // vm.prank (new address)
-            // vm.deal (new address)
-            // address()
             hoax(address(i), SEND_VALUE);
             fundMe.fund{value: SEND_VALUE}();
         }
@@ -116,20 +103,15 @@ contract FundMeTest is Test {
 
         // Assert
         assert(address(fundMe).balance == 0);
-        assert(
-            startingFundMeBalance + startingOwnerBalance ==
-                fundMe.getOwner().balance
-        );
+        assert(startingFundMeBalance + startingOwnerBalance == fundMe.getOwner().balance);
     }
 
     function testWithdrawFromMultipleFundersCheaper() public funded {
+        // Arrange
         uint160 numberOfFunders = 12;
         uint160 startingFunderIndex = 3;
 
         for (uint160 i = startingFunderIndex; i < numberOfFunders; i++) {
-            // vm.prank (new address)
-            // vm.deal (new address)
-            // address()
             hoax(address(i), SEND_VALUE);
             fundMe.fund{value: SEND_VALUE}();
         }
@@ -145,9 +127,6 @@ contract FundMeTest is Test {
 
         // Assert
         assert(address(fundMe).balance == 0);
-        assert(
-            startingFundMeBalance + startingOwnerBalance ==
-                fundMe.getOwner().balance
-        );
+        assert(startingFundMeBalance + startingOwnerBalance == fundMe.getOwner().balance);
     }
 }
